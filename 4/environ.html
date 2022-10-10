@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+ 
+    <title>Compon. Environments</title>
+</head>
+<body>
+    <a-scene>
+
+        <a-assets>
+            <img src="../images/normalmap/pine.jpeg" id="pine"/>
+            <img src="../images/normalmap/NormalMap.png" id="normalMap"/>
+
+        </a-assets>
+        <a-cone src="#pine" normalMap="#normalMap" position="0 2 -5" rotation="0 45 45" scale="2 2 2" roughness="0.3">
+
+            <a-cone color="blue" position="3 1 0" rotation="45 45 0"></a-cone>
+        </a-cone>
+
+
+      
+        <!-- Out of the box environment! -->
+        <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+      </a-scene>
+    
+</body>
+</html>

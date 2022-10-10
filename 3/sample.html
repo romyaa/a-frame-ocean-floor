@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <title>building doc for cc</title>
+</head>
+<body>
+    <a-scene>
+        <!-- assets -->
+        <a-asset>
+            <img id="groundTexture" src="../images/Burger - Imgur.jpg">
+            <img id="torusTexture" src="../images/hot dog - Imgur.jpg">
+            <img id="skyText" src="../images/bread-2.jpg">
+        </a-asset>
+
+        <!-- entities -->
+
+        <a-sky 
+            src="#skyText"
+            repeat="10 10 10"
+        ></a-sky>
+
+        <a-text 
+            font="roboto" 
+            width="30"  
+            color="blue" 
+            opacity="1" 
+            value="you are bread" 
+            position="0 3 -4"
+        ></a-text>
+ <!-- this is a parent-child piece -->
+            <a-entity
+                    geometry="primitive: torus" 
+                    material="src: #torusTexture"
+                    position="0 3 4"
+                    light="type: point; intensity: 0.5"
+                    animation="property: rotation; to: 0 360 0; dur: 4000; loop: true"
+                    animation__2="property: position; to: -2 3 4">
+            <a-torus-knot 
+                position="2 -1 0"
+                color="#B84A39" 
+                arc="180" 
+                p="2" 
+                q="7" 
+                radius="2" 
+                radius-tubular="0.1"></a-torus-knot>
+            <a-torus-knot 
+                position="2 -1 0"
+                rotation="180 0 0"
+                material="src:#torusTexture" 
+                arc="180" 
+                p="2" 
+                q="7" 
+                radius="2" 
+                radius-tubular="0.1"></a-torus-knot>
+            </a-entity>
+
+            <a-plane 
+                rotation="-90 0 0"
+                material="src:#groundTexture"
+                width="40" 
+                height="40"
+                repeat="10 10"
+            ></a-plane>
+
+        
+
+        <!-- lights & camera -->
+        <a-entity light="type: ambient; color: #CCC"></a-entity>
+        <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+
+
+    </a-scene>
+    
+</body>
+</html>

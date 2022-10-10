@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <title>Adding 3D Models to a Sketch</title>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="disco-obj" src="../models/Landrover_Disco_2.obj"></a-asset-item>
+            <a-asset-item id="disco-mtl" src="../models/Landrover_Disco_2.mtl"></a-asset-item>
+            <a-asset-item id="crow" src="../models/crow/scene.gltf"></a-asset-item>
+            <img id="ground" src="../images/dirt.jpeg"/>
+            <img id="crow_image" src="../models/crow/textures/Crow_baseColor.jpeg"/>
+            <img id="crow_normal" src="../models/crow/textures/Crow_normal.png"/>
+            <img id="crow_displace" src="../models/crow/textures/Crow_metallicRoughness.png"/>
+
+        </a-assets>
+
+        <!-- Using the asset management system. LAND ROVER -->
+        <a-obj-model src="#disco-obj" mtl="#disco-mtl"
+        scale="0.003 0.003 0.003"
+        position="0 0 0"
+        rotation="0 180 0"
+        ></a-obj-model>
+
+        <!-- CROW -->
+        <a-gltf-model 
+        id="crow1"
+        src="#crow" 
+        material="src: #crow_image; normalMap: #crow_normal; metalness: 1; ambientOcclusionMap: #crow_displace"
+        position="0 5.97 0"
+        rotation="0 23 -5"
+        ></a-gltf-model>
+        <a-gltf-model 
+        id="crow2"
+        src="#crow" 
+        material="src: #crow_image; normalMap: #crow_normal; metalness: 1; ambientOcclusionMap: #crow_displace"
+        position="-1 5.97 0"
+        rotation="0 -34 -5"
+        ></a-gltf-model>
+
+
+        <!-- Textured plane parallel to ground. -->
+        <a-plane src="#ground" height="100" width="100" rotation="-90 0 0"></a-plane>
+
+        <!-- CAMERA & LIGHTS -->
+        <a-entity camera="active: true" position="-5.369 5 45"  look-controls="" wasd-controls="acceleration:  30" id="camera1"></a-entity>
+        
+    </a-scene>
+</body>
+</html>

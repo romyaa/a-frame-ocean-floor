@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    
+    <script src="../audiocontrols.js"></script>
+    <title>adding a music click player</title>
+</head>
+<body>
+    <a-scene shadow antialiasing cursor="rayOrigin: mouse">
+      
+        <!-- assets attached here -->
+        <a-asset>
+            <img id="sky" src="../images/garden.jpeg">
+            <img id="wall" src="../images/bricks2.jpeg">
+            <img id="playbutton" src="../images/play_button.png">
+            <img id="stopbutton" src="../images/stop.png">
+            <img id="groundText" src="../images/bread-2.jpg">
+            <audio id="song" src="../audio/combatamerica.mp3" loop="true"></audio>
+        </a-asset>
+
+        <a-sky src="#sky" repeat="3 3 3"></a-sky>
+
+        <a-plane 
+                rotation="-90 0 0"
+                position="-2 -10 10"
+                material="src:#groundText"
+                width="80" 
+                height="80"
+                repeat="10 20"
+            ></a-plane>
+
+        <a-plane 
+                rotation="0 0 0"
+                position="-2 -10 -10"
+                material="src:#wall"
+                width="80" 
+                height="80"
+                repeat="10 20"
+        ></a-plane>
+
+        <!-- plane DUO getting click attached to it! -->
+       <a-entity id="musicwall" sound="src: #song">
+        <a-plane 
+
+                rotation="0 0 0"
+                position="0 0 -9.9"
+                material="src:#playbutton; alpha: 0.5; transparent: false"
+                width="10" 
+                height="7"
+                songplayer ></a-plane>
+
+        <a-plane 
+                rotation="0 0 0"
+                position="12 0 -9.9"
+                material="src:#stopbutton; alpha: 0.5; transparent: false"
+                width="10" 
+                height="7"
+                songstopper></a-plane>
+         </a-entity>
+
+    
+        <!-- CAMERA & LIGHTS -->
+        <a-entity camera="active: true" position="-5.369 5 45"  look-controls="" wasd-controls="acceleration:  30" id="camera1"></a-entity>
+        
+    </a-scene>
+</body>
+</html>

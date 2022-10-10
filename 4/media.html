@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <title>adding video 2 planes</title>
+</head>
+<body>
+    <a-scene>
+    <!-- assets preload here -->
+        <a-assets>
+            <video
+            id="boat"
+            autoplay="true"
+            loop="true"
+            src="../video/Boat View.mp4"
+            muted
+          ></video>
+
+          <video 
+           id="internet"
+           autoplay="true"
+           loop="true"
+           src="../video/internet.mp4"
+           muted
+          ></video>
+        </a-assets>
+
+    <!-- using a pre-built environment -->
+
+    <a-entity
+    environment="preset: starry; skyType: gradient; skyColor: #55a6ff; horizonColor: white; shadow: true; lightPosition: 0 13 0; fog: 0.67; groundColor: #5639ac; dressingAmount: 0; grid: none; shadowSize: 2"
+  ></a-entity>
+
+  <!-- making a video plane -->
+  <a-entity
+        id="video-container"
+       
+        position="-10 0 10"
+        rotation="0 -20 0"
+      >
+        <a-video
+          src="#boat"
+          width="12"
+          height="8"
+          position="0 7 0"
+          rotation="0 180 0"
+
+        ></a-video>
+        <a-entity
+          geometry="primitive: cylinder; radius:.2; height:10;"
+          material="color:brown;"
+          position="-6 6 0"
+        ></a-entity>
+        <a-entity
+          geometry="primitive: cylinder; radius:.2; height:10;"
+          material="color:brown;"
+          position="6 6 0"
+        ></a-entity>
+
+        
+      </a-entity>
+
+      <a-entity 
+        id="video-container-2"
+        position="0 0 -40"
+        rotation="0 180 0"
+        >
+
+            <a-video
+            src="#internet"
+            width="12"
+            height="8"
+            position="0 7 0"
+            rotation="0 180 0"
+            ></a-video>
+
+            <a-entity
+          geometry="primitive: cylinder; radius:.2; height:10;"
+          material="color:brown;"
+          position="-6 6 0"
+        ></a-entity>
+        <a-entity
+          geometry="primitive: cylinder; radius:.2; height:10;"
+          material="color:brown;"
+          position="6 6 0"
+        ></a-entity>
+    </a-entity>
+
+
+    </a-scene>
+</body>
+</html>
