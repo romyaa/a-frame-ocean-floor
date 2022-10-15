@@ -23,7 +23,7 @@ AFRAME.registerComponent('spawner', {
         this.count = 0;
 			  const el = document.createElement('a-entity');
         el.setAttribute('gltf-model', '/ga-3d-web/GLB/Shark.glb');
-        el.setAttribute('position', this.getWorldPosition());
+        el.setAttribute('position', {x: this.getWorldPosition().x, y: this.getWorldPosition().y, z: this.getWorldPosition().z});
         el.setAttribute('scale', new THREE.Vector3(0.03, 0.03, 0.03));
         el.setAttribute('material', 'fog: true');
         document.querySelector('a-scene').appendChild(el);
