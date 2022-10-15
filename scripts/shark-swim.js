@@ -1,6 +1,6 @@
 const spawnCountdown = 200;
 
-AFRAME.registerComponent('spawner', {
+AFRAME.registerComponent('shark-swim', {
   
     init: function () {
       this.count = 0;

@@ -10,7 +10,10 @@
     <title>Document</title>
 </head>
 <body>
-    <a-scene fog="type: linear; color: #00008B; density: 10; far: 20">
+    <a-scene 
+        universal-controls='movementControls: universal-gear-vr, keyboard;' 
+        universal-gearvr-controls
+        fog="type: linear; color: #00008B; density: 10; far: 20">
         <a-sphere></a-sphere>
         <a-entity oculus-touch-controls="hand: left"></a-entity>
         <a-entity oculus-touch-controls="hand: right"></a-entity>
